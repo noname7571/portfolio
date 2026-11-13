@@ -1,14 +1,20 @@
 # Matej Tomko — Personal Portfolio
 
-> Personal developer portfolio built with plain HTML, CSS, and JavaScript — no frameworks, no build step, just clean and fast code.
+> Personal developer portfolio built with plain HTML, CSS, and JavaScript — no frameworks, no build step.
 
-**[Live site](https://noname7571.github.io/portfolio)** &nbsp;·&nbsp; [GitHub](https://github.com/noname7571) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/matej-tomko)
+**[Live site](https://noname7571.github.io/portfolio/)** &nbsp;·&nbsp; [GitHub](https://github.com/noname7571) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/matej-tomko/)
 
 ---
 
 ## About
 
-This is my personal portfolio website showcasing my background, technical skills, and work experience. It is designed to be fully responsive, load instantly, and work on any device — from a phone to a widescreen monitor.
+Portfolio for **Matej Tomko**, software developer working in Python and C#/.NET — API
+integrations, market-data pipelines and web applications. Aimed at Python backend, C#/.NET and
+full-stack roles.
+
+The design is deliberately editorial rather than template-like: near-black graphite, off-white
+type, a single copper accent, serif display headings, monospaced metadata and hairline rules
+instead of cards, gradients and glows.
 
 ---
 
@@ -16,11 +22,12 @@ This is my personal portfolio website showcasing my background, technical skills
 
 | Section | What's inside |
 |---|---|
-| **Hero** | Name, animated typed subtitle, short bio, call-to-action buttons |
-| **Skills** | Visual tech-stack grid with icons (Python, C#, SQL, JS, Docker, AWS, and more) |
-| **Experience** | Timeline of professional roles with descriptions and tech tags |
-| **Projects** | Project cards with descriptions, tech stacks, GitHub and live demo links |
-| **Contact** | Email, GitHub, and LinkedIn links |
+| **Hero** | Role headline, introduction, "View my work" and "Download CV", contact links |
+| **01 Professional work** | Sigma Sphere and Deutsche Telekom, with expandable case studies (context, what I built, result, contribution, stack) |
+| **02 Public projects** | Cabo game, price dashboard, topic-research SaaS, flight-sniper, Rust log analyzer, crypto ML pipeline |
+| **03 Skills** | Languages, frameworks, data stores & integration, tools & delivery — each with usage notes |
+| **04 About & education** | Short background, quick facts, compact education list |
+| **05 Contact** | Email, phone, GitHub, LinkedIn, CV |
 
 ---
 
@@ -28,10 +35,9 @@ This is my personal portfolio website showcasing my background, technical skills
 
 | Category | Tools |
 |---|---|
-| Markup & Styling | HTML5, Tailwind CSS (CDN), custom CSS |
+| Markup & Styling | HTML5, hand-written CSS (custom properties, grid, no utility framework) |
+| Type | Instrument Serif (display), Inter (body), JetBrains Mono (metadata) via Google Fonts |
 | Interactivity | Vanilla JavaScript (ES6+) |
-| Animations | CSS keyframes, Intersection Observer API, custom typed effect |
-| Icons | [Devicon](https://devicon.dev) CDN |
 | Hosting | GitHub Pages |
 
 ---
@@ -39,17 +45,17 @@ This is my personal portfolio website showcasing my background, technical skills
 ## Features
 
 - **Zero dependencies / zero build step** — open `index.html` and it works
-- **Scroll-reveal animations** via Intersection Observer — elements fade in as you scroll
-- **Typed text effect** — cycles through words without shifting surrounding content
-- **Sticky glass navbar** — transparent on load, blurred background on scroll with active-link highlighting
-- **Fully responsive** — mobile-first layout with a hamburger menu
-- **Accessible** — semantic HTML, ARIA labels, visible focus rings, reduced-motion friendly
+- **Accessible case studies** — native `<details>`/`<summary>` expanders, keyboard operable
+- **Scroll reveal** via Intersection Observer, disabled under `prefers-reduced-motion`
+- **Sticky header** — transparent at rest, solid with a hairline rule once scrolled
+- **Active section tracking** with `aria-current`
+- **Mobile menu** — full-height panel, `aria-expanded`, closes on link tap / `Escape`
+- **CV download** — `assets/Matej_Tomko_cv.pdf` is served directly from the site
+- **Accessible** — skip link, semantic HTML, visible focus rings, AA-contrast text
 
 ---
 
 ## Running locally
-
-No install needed. Just clone and open:
 
 ```bash
 git clone https://github.com/noname7571/portfolio.git
@@ -65,17 +71,36 @@ python3 -m http.server   # serves at http://localhost:8000
 
 ```
 portfolio/
-├── index.html        # Single-page app — all sections
+├── index.html                   # Single page — all sections
 ├── css/
-│   └── style.css     # Custom animations, scroll-reveal, scrollbar, etc.
+│   └── style.css                # Design tokens, layout, case studies, responsive rules
 ├── js/
-│   └── main.js       # Navbar, typed effect, scroll-reveal, smooth scroll
+│   └── main.js                  # Header state, active section, mobile menu, scroll reveal
 └── assets/
-    └── images/       # Profile photo, project screenshots
+    ├── Matej_Tomko_cv.pdf       # CV served by the "Download CV" actions
+    ├── favicon.svg
+    └── images/
+        └── rt-price-dashboard.png   # Screenshot of the live dashboard project
 ```
+
+All asset and navigation URLs are relative, so the site works from the GitHub Pages base path
+(`/portfolio/`) as well as from a local file server.
+
+---
+
+## Updating content
+
+| What | Where |
+|---|---|
+| CV file | Replace `assets/Matej_Tomko_cv.pdf` (keep the filename, or update the four `download` links) |
+| Case studies | `#work` in `index.html` — one `<details class="case">` per case study |
+| Projects | `#projects` in `index.html` — one `<article class="project">` per project |
+| Skills | `#skills` in `index.html` — one `.skill` block per category |
+| Education | `#about` in `index.html` — the `.education` list |
+| Colours / type | `:root` design tokens at the top of `css/style.css` |
 
 ---
 
 ## Contact
 
-**Matej Tomko** — [matej2808@gmail.com](mailto:matej2808@gmail.com)
+**Matej Tomko** — [matej2808@gmail.com](mailto:matej2808@gmail.com) — +421 918 133 593

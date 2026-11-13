@@ -1,569 +1,689 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matej Tomko — Developer</title>
-    <meta name="description" content="Personal developer portfolio of Matej Tomko — CS student and developer building trading systems, web apps, and data pipelines." />
+    <title>Matej Tomko — Software Developer, Python &amp; C#/.NET</title>
+    <meta
+      name="description"
+      content="Matej Tomko — software developer building API integrations, market-data pipelines and web applications in Python and C#/.NET. Experience delivering software used by external clients."
+    />
+    <meta name="author" content="Matej Tomko" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: "#06b6d4",
-            },
-            fontFamily: {
-              mono: ["JetBrains Mono", "Fira Code", "monospace"],
-            },
-            animation: {
-              "fade-up": "fadeUp 0.6s ease forwards",
-              blink: "blink 1s step-end infinite",
-              gradient: "gradientShift 8s ease infinite",
-            },
-            keyframes: {
-              fadeUp: {
-                "0%": { opacity: "0", transform: "translateY(24px)" },
-                "100%": { opacity: "1", transform: "translateY(0)" },
-              },
-              blink: {
-                "0%, 100%": { opacity: "1" },
-                "50%": { opacity: "0" },
-              },
-              gradientShift: {
-                "0%, 100%": { backgroundPosition: "0% 50%" },
-                "50%": { backgroundPosition: "100% 50%" },
-              },
-            },
-          },
-        },
-      };
-    </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://noname7571.github.io/portfolio/" />
+    <meta property="og:title" content="Matej Tomko — Software Developer, Python &amp; C#/.NET" />
+    <meta
+      property="og:description"
+      content="API integrations, market-data pipelines and web applications. Software deployed and operated for external clients."
     />
 
-    <!-- Custom styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body class="bg-slate-900 text-slate-100" style="font-family: 'Inter', sans-serif">
+  <body id="top">
+    <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- ─────────────────────────────────────────
-         NAVIGATION
-    ───────────────────────────────────────── -->
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <!-- Logo / name -->
-        <a href="#hero" class="text-brand font-mono font-medium text-lg tracking-tight hover:opacity-80 transition-opacity">
-          &lt;MT /&gt;
+    <header class="site-header" id="site-header">
+      <div class="wrap header-inner">
+        <a href="#top" class="brand">Matej Tomko</a>
+
+        <nav class="nav" aria-label="Main">
+          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="assets/Matej_Tomko_cv.pdf" download="Matej_Tomko_cv.pdf" type="application/pdf" class="cv-link">
+          CV <span aria-hidden="true">&darr;</span>
         </a>
 
-        <!-- Desktop links -->
-        <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-          <li><a href="#about"      class="nav-link hover:text-brand transition-colors">About</a></li>
-          <li><a href="#skills"     class="nav-link hover:text-brand transition-colors">Skills</a></li>
-          <li><a href="#experience" class="nav-link hover:text-brand transition-colors">Experience</a></li>
-          <li><a href="#projects"   class="nav-link hover:text-brand transition-colors">Projects</a></li>
-          <li><a href="#contact"    class="nav-link hover:text-brand transition-colors">Contact</a></li>
-        </ul>
-
-        <!-- Hire me CTA -->
-        <a
-          href="mailto:matej2808@gmail.com"
-          class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand text-brand text-sm font-medium hover:bg-brand hover:text-slate-900 transition-all duration-200"
-        >
-          Hire me
-        </a>
-
-        <!-- Hamburger (mobile) -->
         <button
           id="menu-btn"
-          class="md:hidden p-2 rounded-lg text-slate-300 hover:text-brand transition-colors"
+          class="menu-btn"
           aria-label="Toggle menu"
           aria-expanded="false"
+          aria-controls="mobile-menu"
         >
-          <svg id="icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <span class="menu-icon" aria-hidden="true"></span>
         </button>
-      </nav>
+      </div>
 
-      <!-- Mobile menu -->
-      <div
-        id="mobile-menu"
-        class="md:hidden hidden flex-col gap-1 px-6 pb-4 bg-slate-900/95 backdrop-blur border-t border-slate-800"
-      >
-        <a href="#about"      class="block py-3 text-slate-300 hover:text-brand transition-colors border-b border-slate-800">About</a>
-        <a href="#skills"     class="block py-3 text-slate-300 hover:text-brand transition-colors border-b border-slate-800">Skills</a>
-        <a href="#experience" class="block py-3 text-slate-300 hover:text-brand transition-colors border-b border-slate-800">Experience</a>
-        <a href="#projects"   class="block py-3 text-slate-300 hover:text-brand transition-colors border-b border-slate-800">Projects</a>
-        <a href="#contact"    class="block py-3 text-slate-300 hover:text-brand transition-colors">Contact</a>
+      <div id="mobile-menu" class="mobile-menu">
+        <nav aria-label="Mobile">
+          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="assets/Matej_Tomko_cv.pdf" download="Matej_Tomko_cv.pdf" type="application/pdf">Download CV (PDF)</a>
+        </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main">
 
-      <!-- ─────────────────────────────────────────
-           HERO
-      ───────────────────────────────────────── -->
-      <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Animated gradient background -->
-        <div class="hero-gradient absolute inset-0 pointer-events-none"></div>
-        <!-- Subtle grid overlay -->
-        <div class="grid-overlay absolute inset-0 pointer-events-none opacity-20"></div>
-
-        <div class="relative z-10 max-w-6xl mx-auto px-6 py-32">
-          <p class="text-brand font-mono text-sm mb-4 opacity-0 animate-[fadeUp_0.5s_ease_0.1s_forwards]">
-            Hi, my name is
-          </p>
-
-          <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 opacity-0 animate-[fadeUp_0.5s_ease_0.2s_forwards]">
-            Matej Tomko
-          </h1>
-
-          <h2 class="text-3xl md:text-5xl font-bold text-slate-400 mb-6 opacity-0 animate-[fadeUp_0.5s_ease_0.3s_forwards]">
-            I build things for the&nbsp;<span class="inline-block text-brand align-bottom" style="min-width:6.5em"><span id="typed-text"></span><span class="typed-cursor">|</span></span>
-          </h2>
-
-          <p
-            id="about"
-            class="max-w-xl text-slate-400 text-lg leading-relaxed mb-10 opacity-0 animate-[fadeUp_0.5s_ease_0.4s_forwards]"
-          >
-            I'm a Computer Science student and developer with hands-on industry experience building
-            low-latency trading systems in C#, full-stack web platforms in PHP and JavaScript,
-            and data pipelines in Python. I enjoy working close to the metal and shipping things that
-            actually work.
-          </p>
-
-          <div class="flex flex-wrap gap-4 opacity-0 animate-[fadeUp_0.5s_ease_0.5s_forwards]">
-            <a
-              href="#projects"
-              class="px-6 py-3 rounded-full bg-brand text-slate-900 font-semibold hover:bg-cyan-400 transition-colors duration-200 shadow-lg shadow-cyan-500/20"
-            >
-              View my work
-            </a>
-            <a
-              href="#contact"
-              class="px-6 py-3 rounded-full border border-slate-600 text-slate-300 font-medium hover:border-brand hover:text-brand transition-colors duration-200"
-            >
-              Get in touch
-            </a>
-          </div>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-[fadeUp_0.5s_ease_1s_forwards]">
-          <div class="scroll-indicator"></div>
-        </div>
-      </section>
-
-      <!-- ─────────────────────────────────────────
-           SKILLS
-      ───────────────────────────────────────── -->
-      <section id="skills" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-
-          <div class="reveal mb-16 text-center">
-            <p class="text-brand font-mono text-sm mb-2">What I work with</p>
-            <h2 class="text-4xl font-bold">Tech Stack</h2>
+      <!-- ── Hero ─────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-meta">
+            <span class="status"><span class="status-dot" aria-hidden="true"></span>Open to Python backend, C#/.NET and full-stack roles</span>
+            <span class="mono dim">Ko&#353;ice, Slovakia</span>
           </div>
 
-          <div class="reveal grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
+          <h1>Matej Tomko</h1>
 
-            <!-- Skill card template — duplicate and change icon/label as needed -->
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"   alt="HTML5"      class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">HTML5</span>
-            </div>
+          <p class="role-line">Software Developer <span class="sep">/</span> Python &amp; C#/.NET</p>
 
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"     alt="CSS3"       class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">CSS3</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">JavaScript</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">C#</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">PHP</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">NumPy</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"     class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">Python</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">PostgreSQL</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"     class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">Docker</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"       alt="Git"        class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">Git</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">AWS</span>
-            </div>
-
-            <div class="skill-card flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 hover:border-brand/50 transition-all duration-200 hover:-translate-y-1 cursor-default group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="w-10 h-10" />
-              <span class="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">Pandas</span>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ─────────────────────────────────────────
-           PROJECTS
-      ───────────────────────────────────────── -->
-      <section id="experience" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-
-          <div class="reveal mb-16 text-center">
-            <p class="text-brand font-mono text-sm mb-2">Where I've worked</p>
-            <h2 class="text-4xl font-bold">Experience</h2>
-          </div>
-
-          <div class="relative">
-            <!-- Vertical timeline line (desktop) -->
-            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-700/60 -translate-x-1/2"></div>
-
-            <div class="flex flex-col gap-12">
-
-              <!-- Job 1: Sigma Sphere -->
-              <div class="reveal md:grid md:grid-cols-2 md:gap-12 items-start">
-                <div class="md:text-right mb-4 md:mb-0 md:pr-10">
-                  <span class="inline-block px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand font-mono text-xs">
-                    Apr 2025 &mdash; Present
-                  </span>
-                  <p class="mt-2 text-slate-500 text-sm">Remote &middot; Part-time</p>
-                </div>
-                <div class="md:pl-10 relative">
-                  <div class="hidden md:block absolute -left-[2.65rem] top-1 w-3 h-3 rounded-full bg-brand border-2 border-slate-900 ring-2 ring-brand/30"></div>
-                  <h3 class="text-lg font-semibold">Quantitative Developer</h3>
-                  <p class="text-brand text-sm font-medium mb-3">Sigma Sphere &mdash; Ko&#353;ice, Slovakia</p>
-                  <ul class="space-y-2 text-slate-400 text-sm leading-relaxed">
-                    <li class="flex gap-2"><span class="text-brand mt-1 shrink-0">&#9657;</span>Built a C# client integrating with the Lighter trading platform via REST and WebSocket, supporting real-time order book updates and full order management &mdash; achieving 12&ndash;15 ms operation latency.</li>
-                    <li class="flex gap-2"><span class="text-brand mt-1 shrink-0">&#9657;</span>Rewrote the client in Rust, reducing latency from 12&ndash;15 ms down to 7&ndash;9 ms for speed-critical live trading.</li>
-                    <li class="flex gap-2"><span class="text-brand mt-1 shrink-0">&#9657;</span>Extended a C# data feeder with a WebSocket server for JSON ingestion, routing data through a KDB+/Q database stack.</li>
-                    <li class="flex gap-2"><span class="text-brand mt-1 shrink-0">&#9657;</span>Built a Python connector for the HTX exchange that downloads and transforms historical OHLCV data with checksum-based caching to avoid redundant downloads.</li>
-                  </ul>
-                  <div class="flex flex-wrap gap-2 mt-4">
-                    <span class="tag">C#</span>
-                    <span class="tag">Rust</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">WebSockets</span>
-                    <span class="tag">KDB+/Q</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Job 2: Deutsche Telekom -->
-              <div class="reveal md:grid md:grid-cols-2 md:gap-12 items-start">
-                <div class="md:text-right mb-4 md:mb-0 md:pr-10">
-                  <span class="inline-block px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-brand font-mono text-xs">
-                    Feb 2025 &mdash; Present
-                  </span>
-                  <p class="mt-2 text-slate-500 text-sm">Hybrid &middot; Internship</p>
-                </div>
-                <div class="md:pl-10 relative">
-                  <div class="hidden md:block absolute -left-[2.65rem] top-1 w-3 h-3 rounded-full bg-slate-600 border-2 border-slate-900 ring-2 ring-slate-600/30"></div>
-                  <h3 class="text-lg font-semibold">Fullstack Developer</h3>
-                  <p class="text-brand text-sm font-medium mb-3">Deutsche Telekom IT Solutions Slovakia &mdash; Ko&#353;ice, Slovakia</p>
-                  <ul class="space-y-2 text-slate-400 text-sm leading-relaxed">
-                    <li class="flex gap-2"><span class="text-brand mt-1 shrink-0">&#9657;</span>Built key features for an internal task management platform (PHP, JS, HTML/CSS), including interactive data visualisations and an automated reporting pipeline via cron jobs &mdash; replacing a previously manual weekly review process.</li>
-                    <li class="flex gap-2"><span class="text-brand mt-1 shrink-0">&#9657;</span>Worked in an Agile environment with weekly sprint planning and used Git for team collaboration.</li>
-                  </ul>
-                  <div class="flex flex-wrap gap-2 mt-4">
-                    <span class="tag">PHP</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">Agile</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="py-24 px-6 bg-slate-800/30">
-        <div class="max-w-6xl mx-auto">
-
-          <div class="reveal mb-16 text-center">
-            <p class="text-brand font-mono text-sm mb-2">What I've built</p>
-            <h2 class="text-4xl font-bold">Projects</h2>
-          </div>
-
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-            <!-- ── Project Card 1 ── -->
-            <article class="reveal project-card flex flex-col bg-slate-800 rounded-2xl border border-slate-700/60 overflow-hidden hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/5">
-              <!-- Top colour bar -->
-              <div class="h-1 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-
-              <div class="p-6 flex flex-col flex-1 gap-4">
-                <!-- Header -->
-                <div class="flex items-start justify-between">
-                  <svg class="w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-                  </svg>
-                  <div class="flex gap-3">
-                    <a href="https://github.com/noname7571/rt-price-dashboard" target="_blank" rel="noopener" aria-label="GitHub" class="text-slate-400 hover:text-brand transition-colors">
-                      <!-- GitHub icon -->
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    </a>
-                    <a href="https://noname7571.github.io/rt-price-dashboard/" target="_blank" rel="noopener" aria-label="Live demo" class="text-slate-400 hover:text-brand transition-colors">
-                      <!-- External link icon -->
-                      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Title & description -->
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold mb-2">Real-Time Price Dashboard</h3>
-                  <p class="text-slate-400 text-sm leading-relaxed">
-                    A real-time cryptocurrency price dashboard that streams live data from Binance via WebSocket and renders interactive candlestick / line charts using TradingView Lightweight Charts. Features multiple intervals, 24h stats, OHLC readout, and auto-reconnect with exponential back-off.
-                  </p>
-                </div>
-
-                <!-- Tech stack tags -->
-                <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-700/50">
-                  <span class="tag">Vanilla JS</span>
-                  <span class="tag">WebSockets</span>
-                  <span class="tag">TradingView Charts</span>
-                  <span class="tag">Binance API</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- ── Project Card 2 ── -->
-            <article class="reveal project-card flex flex-col bg-slate-800 rounded-2xl border border-slate-700/60 overflow-hidden hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/5">
-              <div class="h-1 bg-gradient-to-r from-violet-500 to-purple-500"></div>
-              <div class="p-6 flex flex-col flex-1 gap-4">
-                <div class="flex items-start justify-between">
-                  <svg class="w-8 h-8 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <div class="flex gap-3">
-                    <a href="https://github.com/noname7571/rs-cli-log-analyzer" target="_blank" rel="noopener" aria-label="GitHub" class="text-slate-400 hover:text-brand transition-colors">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold mb-2">Rust CLI Log Analyzer</h3>
-                  <p class="text-slate-400 text-sm leading-relaxed">
-                    A Rust CLI tool that parses plain-text log files and produces a structured summary: level breakdowns, top recurring error patterns (with variable-part normalisation), and an hourly ASCII timeline. Supports JSON and CSV export.
-                  </p>
-                </div>
-                <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-700/50">
-                  <span class="tag">Rust</span>
-                  <span class="tag">clap</span>
-                  <span class="tag">serde</span>
-                  <span class="tag">regex</span>
-                  <span class="tag">CLI</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- ── Project Card 3 ── -->
-            <article class="reveal project-card flex flex-col bg-slate-800 rounded-2xl border border-slate-700/60 overflow-hidden hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/5">
-              <div class="h-1 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
-              <div class="p-6 flex flex-col flex-1 gap-4">
-                <div class="flex items-start justify-between">
-                  <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  <div class="flex gap-3">
-                    <a href="https://github.com/noname7571/acabo-online-game" target="_blank" rel="noopener" aria-label="GitHub" class="text-slate-400 hover:text-brand transition-colors">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold mb-2">Cabo Online Game</h3>
-                  <p class="text-slate-400 text-sm leading-relaxed">
-                    A real-time multiplayer card game built with ASP.NET Core and WebSockets. Server-side C# handles game and lobby state, and a WebSocket controller delivers low-latency bi-directional messaging to browser clients. Demonstrates full-stack architecture, real-time networking and clean separation of concerns.
-                  </p>
-                </div>
-                <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-700/50">
-                  <span class="tag">C#</span>
-                  <span class="tag">ASP.NET Core</span>
-                  <span class="tag">WebSockets</span>
-                  <span class="tag">Real-time</span>
-                  <span class="tag">Multiplayer</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- ── Project Card 4 ── -->
-            <article class="reveal project-card flex flex-col bg-slate-800 rounded-2xl border border-slate-700/60 overflow-hidden hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/5">
-              <div class="h-1 bg-gradient-to-r from-amber-500 to-orange-500"></div>
-              <div class="p-6 flex flex-col flex-1 gap-4">
-                <div class="flex items-start justify-between">
-                  <svg class="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 15l3-3 3 2 4-6" />
-                  </svg>
-                  <div class="flex gap-3">
-                    <a href="https://github.com/noname7571/crypto-ml" target="_blank" rel="noopener" aria-label="GitHub" class="text-slate-400 hover:text-brand transition-colors">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold mb-2">Crypto ML Pipeline</h3>
-                  <p class="text-slate-400 text-sm leading-relaxed">
-                    An end-to-end crypto machine learning pipeline that fetches and cleans OHLCV data, engineers technical features, trains LSTM/XGBoost models with MLflow tracking, and serves predictions through a FastAPI service with a Docker-ready setup.
-                  </p>
-                </div>
-                <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-700/50">
-                  <span class="tag">Python</span>
-                  <span class="tag">FastAPI</span>
-                  <span class="tag">XGBoost</span>
-                  <span class="tag">PyTorch</span>
-                  <span class="tag">MLflow</span>
-                </div>
-              </div>
-            </article>
-
-          </div>
-
-          <!-- More on GitHub link -->
-          <div class="reveal mt-12 text-center">
-            <a
-              href="https://github.com/noname7571"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-2 text-slate-400 hover:text-brand transition-colors text-sm font-medium group"
-            >
-              More projects on GitHub
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ─────────────────────────────────────────
-           CONTACT
-      ───────────────────────────────────────── -->
-      <section id="contact" class="py-24 px-6">
-        <div class="max-w-2xl mx-auto text-center">
-
-          <div class="reveal">
-            <p class="text-brand font-mono text-sm mb-2">What's next?</p>
-            <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
-            <p class="text-slate-400 text-lg leading-relaxed mb-10">
-              Whether you have a project in mind, a question,
-              or just want to say hi — drop me a message.
+          <div class="hero-body">
+            <p class="lede">
+              I build API integrations, market-data pipelines and web applications. My experience
+              includes deploying and operating software used by external clients.
             </p>
+
+            <div class="hero-actions">
+              <a href="#work" class="btn">View my work</a>
+              <a href="assets/Matej_Tomko_cv.pdf" download="Matej_Tomko_cv.pdf" type="application/pdf" class="btn btn-quiet">
+                Download CV <span class="mono">PDF</span>
+              </a>
+            </div>
           </div>
 
-          <!-- Email CTA -->
-          <div class="reveal mb-12">
-            <a
-              href="mailto:matej2808@gmail.com"
-              class="inline-block px-8 py-4 rounded-full border border-brand text-brand font-semibold text-lg hover:bg-brand hover:text-slate-900 transition-all duration-200 shadow-lg shadow-cyan-500/10"
-            >
-              Say Hello
-            </a>
+          <ul class="hero-links mono">
+            <li><a href="mailto:matej2808@gmail.com">matej2808@gmail.com</a></li>
+            <li><a href="https://github.com/noname7571" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/matej-tomko/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="tel:+421918133593">+421 918 133 593</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Work ─────────────────────────────────────────── -->
+      <section id="work" class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="section-num mono">01</span>
+            <div>
+              <h2>Professional work</h2>
+              <p class="section-lede">
+                Software I built, shipped and operated in a team &mdash; including a dashboard that
+                external clients use to manage live liquidity positions.
+              </p>
+            </div>
           </div>
 
-          <!-- Social links -->
-          <div class="reveal flex justify-center gap-8">
+          <article class="role reveal">
+            <div class="role-meta">
+              <p class="mono">Apr 2025 &mdash; Present</p>
+              <p class="mono dim">Remote</p>
+            </div>
 
-            <!-- GitHub -->
-            <a
-              href="https://github.com/noname7571"
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub profile"
-              class="social-link flex flex-col items-center gap-2 text-slate-400 hover:text-brand transition-colors group"
-            >
-              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              <span class="text-xs">GitHub</span>
-            </a>
+            <div class="role-body">
+              <h3>Quantitative Developer <span class="role-company">&mdash; Sigma Sphere, Ko&#353;ice</span></h3>
+              <p class="role-desc">
+                Python and C# development for a liquidity-provisioning platform: the client-facing
+                Flask dashboard, market-data ingestion, and low-latency trading clients.
+              </p>
 
-            <!-- LinkedIn -->
-            <a
-              href="https://linkedin.com/in/matej-tomko"
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn profile"
-              class="social-link flex flex-col items-center gap-2 text-slate-400 hover:text-brand transition-colors group"
-            >
-              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              <span class="text-xs">LinkedIn</span>
-            </a>
+              <div class="cases">
+                <details class="case" open>
+                  <summary>
+                    <span class="case-head">
+                      <span class="case-title">Liquidity-management application</span>
+                      <span class="case-sub">Flask dashboard used by external clients to manage live positions</span>
+                    </span>
+                    <span class="case-toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="case-inner">
+                    <div class="case-cols">
+                      <div>
+                        <h4>Context</h4>
+                        <p>
+                          A Python application with a Flask web interface, used by external clients
+                          managing live liquidity positions.
+                        </p>
 
-            <!-- Email -->
-            <a
-              href="mailto:matej2808@gmail.com"
-              aria-label="Send email"
-              class="social-link flex flex-col items-center gap-2 text-slate-400 hover:text-brand transition-colors group"
-            >
-              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              <span class="text-xs">Email</span>
-            </a>
+                        <h4>What I built</h4>
+                        <ul class="bullets">
+                          <li>Built the web interface: pool and position monitoring, with actions to open and close positions, collect fees and rebalance.</li>
+                          <li>Integrated the exchange APIs and execution workflows behind those actions.</li>
+                          <li>Exposed configurable timers and percentage-based rebalancing triggers in the interface.</li>
+                          <li>Added Telegram report delivery and ClickHouse integration, also for a Python funding-rate application.</li>
+                          <li>Deployed and operated the application for external clients.</li>
+                        </ul>
+
+                        <h4>Result</h4>
+                        <p>
+                          Clients manage live positions from the dashboard and receive scheduled
+                          Telegram reports; liquidity and funding-rate data can be queried from
+                          ClickHouse.
+                        </p>
+                      </div>
+
+                      <aside>
+                        <h4>My contribution</h4>
+                        <p>Web interface, API integrations and execution workflows, deployment and operation.</p>
+                        <p class="note">The strategy engine and position calculations were not part of my work.</p>
+
+                        <h4>Stack</h4>
+                        <p class="stack mono">Python &middot; Flask &middot; REST APIs &middot; ClickHouse &middot; Telegram Bot API</p>
+                      </aside>
+                    </div>
+                  </div>
+                </details>
+
+                <details class="case">
+                  <summary>
+                    <span class="case-head">
+                      <span class="case-title">Market-data ingestion</span>
+                      <span class="case-sub">C# feeder integrations and a Python connector for historical OHLCV data</span>
+                    </span>
+                    <span class="case-toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="case-inner">
+                    <div class="case-cols">
+                      <div>
+                        <h4>Context</h4>
+                        <p>
+                          An existing C# market-data feeder and the data stores behind it. QuestDB
+                          was the main database I worked with.
+                        </p>
+
+                        <h4>What I built</h4>
+                        <ul class="bullets">
+                          <li>Extended the C# feeder with integrations for EODHD, Coinbase, CoinGlass and Bybit.</li>
+                          <li>Created the QuestDB tables used for market-data ingestion.</li>
+                          <li>Worked with JSON configuration and state files, plus shell launch scripts for running the feeds.</li>
+                          <li>Built a Python HTX historical OHLCV connector with archive extraction, schema transformation, checksum-based caching and WebSocket ingestion into the pipeline.</li>
+                        </ul>
+
+                        <h4>Result</h4>
+                        <p>
+                          Multiple venue feeds and historical backfills land in one QuestDB-backed
+                          pipeline, and checksum-based caching avoids re-downloading the same
+                          archives.
+                        </p>
+                      </div>
+
+                      <aside>
+                        <h4>My contribution</h4>
+                        <p>Venue integrations, QuestDB table design, configuration and launch tooling, and the HTX historical connector.</p>
+                        <p class="note">
+                          I had limited earlier exposure to kdb+/q before the system changed
+                          databases; the database work described here is QuestDB.
+                        </p>
+
+                        <h4>Stack</h4>
+                        <p class="stack mono">C# &middot; Python &middot; QuestDB &middot; WebSocket &middot; REST APIs &middot; JSON &middot; Shell</p>
+                      </aside>
+                    </div>
+                  </div>
+                </details>
+
+                <details class="case">
+                  <summary>
+                    <span class="case-head">
+                      <span class="case-title">Trading-client performance</span>
+                      <span class="case-sub">Lighter client in C#, rewritten in Rust &mdash; 12&ndash;15 ms to 7&ndash;9 ms</span>
+                    </span>
+                    <span class="case-toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="case-inner">
+                    <div class="case-cols">
+                      <div>
+                        <h4>Context</h4>
+                        <p>A trading client for Lighter, first written in C# and then rewritten in Rust.</p>
+
+                        <h4>What I built</h4>
+                        <ul class="bullets">
+                          <li>Developed the C# client against Lighter's REST and WebSocket APIs, supporting real-time order-book updates.</li>
+                          <li>Implemented order creation, modification and cancellation through the same client.</li>
+                          <li>Rewrote the client in Rust, keeping the same order operations behind a faster implementation.</li>
+                        </ul>
+
+                        <h4>Result</h4>
+                        <p>Order-operation latency measured 12&ndash;15 ms in the C# client and 7&ndash;9 ms after the Rust rewrite.</p>
+                      </div>
+
+                      <aside>
+                        <h4>My contribution</h4>
+                        <p>The full client in both languages: API integration, order operations and the Rust rewrite.</p>
+
+                        <h4>Stack</h4>
+                        <p class="stack mono">C# &middot; Rust &middot; REST APIs &middot; WebSocket</p>
+                      </aside>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </article>
+
+          <article class="role reveal">
+            <div class="role-meta">
+              <p class="mono">Feb 2025 &mdash; Aug 2026</p>
+              <p class="mono dim">Hybrid internship</p>
+            </div>
+
+            <div class="role-body">
+              <h3>Full-stack Developer <span class="role-company">&mdash; Deutsche Telekom IT Solutions, Ko&#353;ice</span></h3>
+              <p class="role-desc">
+                Feature development and reporting automation for an internal task-management
+                platform.
+              </p>
+
+              <div class="cases">
+                <details class="case" open>
+                  <summary>
+                    <span class="case-head">
+                      <span class="case-title">Internal task-management platform</span>
+                      <span class="case-sub">Platform features, interactive visualisations and automated weekly reporting</span>
+                    </span>
+                    <span class="case-toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="case-inner">
+                    <div class="case-cols">
+                      <div>
+                        <h4>Context</h4>
+                        <p>An internal task-management platform used inside Deutsche Telekom IT Solutions Slovakia.</p>
+
+                        <h4>What I built</h4>
+                        <ul class="bullets">
+                          <li>Developed platform features in PHP, JavaScript and HTML/CSS, including interactive data visualisations.</li>
+                          <li>Automated weekly task-status reports with cron jobs and email delivery, replacing a manual review step.</li>
+                          <li>Worked in an Agile team, using Git for day-to-day collaboration.</li>
+                        </ul>
+
+                        <h4>Result</h4>
+                        <p>Weekly status reporting runs on a schedule instead of being assembled by hand.</p>
+                      </div>
+
+                      <aside>
+                        <h4>My contribution</h4>
+                        <p>Feature work across the front end and backend of the platform, plus the reporting automation.</p>
+
+                        <h4>Stack</h4>
+                        <p class="stack mono">PHP &middot; JavaScript &middot; HTML/CSS &middot; cron &middot; Git &middot; Agile</p>
+                      </aside>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </article>
+
+          <p class="footnote reveal">
+            Client work is described technically: no client screenshots, data or internal
+            architecture diagrams are published.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Projects ─────────────────────────────────────── -->
+      <section id="projects" class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="section-num mono">02</span>
+            <div>
+              <h2>Public projects</h2>
+              <p class="section-lede">
+                Independent work with public source code &mdash; real-time networking, streaming
+                data, full-stack products and command-line tooling.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-grid">
+
+            <article class="project reveal">
+              <div class="project-head">
+                <h3>Cabo Multiplayer Online Game</h3>
+                <p class="project-links mono">
+                  <a href="https://github.com/noname7571/acabo-online-game" target="_blank" rel="noopener">Source&nbsp;↗</a>
+                </p>
+              </div>
+              <p class="project-desc">
+                Multiplayer implementation of the Cabo card game. An ASP.NET Core backend keeps
+                lobby and game state server-side and exchanges messages over WebSockets; a vanilla
+                JS front end renders the table. Lobbies for up to four players, optional turn timers
+                and full rounds with scoring.
+              </p>
+              <p class="project-stack mono">C# &middot; ASP.NET Core &middot; WebSocket &middot; Vanilla JS</p>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-head">
+                <h3>Real-Time Price Dashboard</h3>
+                <p class="project-links mono">
+                  <a href="https://noname7571.github.io/rt-price-dashboard/" target="_blank" rel="noopener">Live&nbsp;↗</a>
+                  <a href="https://github.com/noname7571/rt-price-dashboard" target="_blank" rel="noopener">Source&nbsp;↗</a>
+                </p>
+              </div>
+              <a class="project-media" href="https://noname7571.github.io/rt-price-dashboard/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                <img
+                  src="assets/images/rt-price-dashboard.png"
+                  alt="Real-Time Price Dashboard showing live BTC, ETH and SOL price cards with 24-hour statistics"
+                  width="1600"
+                  height="1000"
+                  loading="lazy"
+                />
+              </a>
+              <p class="project-desc">
+                Binance WebSocket streams feed interactive TradingView Lightweight Charts, with
+                candlestick and line views, multiple intervals, 24-hour statistics and an OHLC
+                readout on crosshair hover. Reconnects automatically with exponential backoff.
+              </p>
+              <p class="project-stack mono">JavaScript &middot; WebSocket &middot; Binance API &middot; Lightweight Charts</p>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-head">
+                <h3>Topic Research Engine</h3>
+                <p class="project-links mono">
+                  <a href="https://github.com/noname7571/topic-research" target="_blank" rel="noopener">Source&nbsp;↗</a>
+                </p>
+              </div>
+              <p class="project-desc">
+                A SaaS that turns discussion across Reddit, YouTube and news into themed signal
+                rather than a summary: a pipeline for query expansion, relevance filtering,
+                clustering, sentiment and LLM-generated insights. Includes Supabase auth and
+                Postgres, Stripe subscription billing with plan-based feature gating, and usage
+                tracking.
+              </p>
+              <p class="project-stack mono">TypeScript &middot; Next.js &middot; Supabase &middot; Stripe &middot; OpenAI</p>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-head">
+                <h3>Flight Sniper</h3>
+                <p class="project-links mono">
+                  <a href="https://flight-sniper-jet.vercel.app" target="_blank" rel="noopener">Live&nbsp;↗</a>
+                  <a href="https://github.com/noname7571/flight-sniper" target="_blank" rel="noopener">Source&nbsp;↗</a>
+                </p>
+              </div>
+              <p class="project-desc">
+                Flight-price monitor for Central European airports. A Node.js scheduler checks
+                routes at a chosen interval, stores price history, and sends email or Discord alerts
+                when a fare drops below the target. Flight data from SerpApi plus direct
+                Ryanair/Wizzair scrapers.
+              </p>
+              <p class="project-stack mono">Node.js &middot; TypeScript &middot; Express &middot; PostgreSQL &middot; Docker &middot; SerpApi</p>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-head">
+                <h3>Rust CLI Log Analyzer</h3>
+                <p class="project-links mono">
+                  <a href="https://github.com/noname7571/rs-cli-log-analyzer" target="_blank" rel="noopener">Source&nbsp;↗</a>
+                </p>
+              </div>
+              <p class="project-desc">
+                Command-line tool that parses plain-text log files and reports line counts,
+                log-level breakdowns, recurring-error detection with normalised messages, and hourly
+                summaries. Exports the same summary as JSON or CSV.
+              </p>
+
+              <details class="case case-compact">
+                <summary>
+                  <span class="case-head">
+                    <span class="case-title">Example output</span>
+                  </span>
+                  <span class="case-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="case-inner">
+                  <pre class="log-output">────────────────────────────────────────────
+  LOG ANALYSIS SUMMARY
+────────────────────────────────────────────
+
+  File Statistics
+  ├─ Total Lines   : 18
+  ├─ Parsed Lines  : 17
+  ├─ Start Time    : 2024-01-15 10:00:12
+  └─ End Time      : 2024-01-15 12:45:19
+
+  Log Level Breakdown
+  ├─ ERROR   :      8
+  ├─ WARN    :      3
+  ├─ INFO    :      5
+  ├─ DEBUG   :      1
+  ├─ TRACE   :      0
+  └─ UNKNOWN :      1
+
+  Top 4 Error Pattern(s)
+  ├─ [3×] Connection refused to redis://localhost:&lt;N&gt;
+  ├─ [2×] Failed to acquire lock: timeout after 5000ms
+  ├─ [2×] Unhandled exception in worker thread: NullPointerException
+  └─ [1×] Disk space below threshold: remaining on /dev/sda1
+
+  Error Timeline (by hour)
+  ├─ 2024-01-15 10:00  ████████████████████  E:4 W:2
+  ├─ 2024-01-15 11:00  ████████████████████  E:4 W:1
+  └─ 2024-01-15 12:00  ░░░░░░░░░░░░░░░░░░░░  E:0 W:0</pre>
+                </div>
+              </details>
+
+              <p class="project-stack mono">Rust &middot; CLI &middot; Regex &middot; JSON/CSV</p>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-head">
+                <h3>Crypto ML Pipeline</h3>
+                <p class="project-links mono">
+                  <a href="https://github.com/noname7571/crypto-ml" target="_blank" rel="noopener">Source&nbsp;↗</a>
+                </p>
+              </div>
+              <p class="project-desc">
+                An end-to-end crypto machine learning pipeline that fetches and cleans OHLCV data,
+                engineers technical features, trains LSTM/XGBoost models with MLflow tracking, and
+                serves predictions through a FastAPI service with a Docker-ready setup.
+              </p>
+              <p class="project-stack mono">Python &middot; FastAPI &middot; XGBoost &middot; PyTorch &middot; MLflow</p>
+            </article>
 
           </div>
 
+          <p class="footnote reveal">
+            More repositories on <a href="https://github.com/noname7571" target="_blank" rel="noopener">github.com/noname7571</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Skills ───────────────────────────────────────── -->
+      <section id="skills" class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="section-num mono">03</span>
+            <div>
+              <h2>Skills</h2>
+              <p class="section-lede">Grouped by how I actually use them, with the work behind each group.</p>
+            </div>
+          </div>
+
+          <dl class="skills">
+            <div class="skill reveal">
+              <dt class="mono">Languages</dt>
+              <dd>
+                <p class="skill-items">Python &middot; C# &middot; SQL &middot; JavaScript &middot; TypeScript &middot; PHP &middot; Rust &middot; HTML/CSS</p>
+                <p class="skill-note">
+                  Python and C# carry most of my production work and SQL is part of the day-to-day.
+                  JavaScript and PHP come from internal web tooling; Rust from rewriting a trading
+                  client.
+                </p>
+              </dd>
+            </div>
+
+            <div class="skill reveal">
+              <dt class="mono">Frameworks &amp; libraries</dt>
+              <dd>
+                <p class="skill-items">ASP.NET Core &middot; Flask &middot; Node.js/Express &middot; Next.js &middot; pandas &middot; NumPy &middot; requests</p>
+                <p class="skill-note">
+                  ASP.NET Core for a real-time game server; Flask for the client-facing
+                  liquidity-management dashboard &mdash; my first project with Flask; Node.js and
+                  Next.js for public products; pandas, NumPy and requests for data pipelines.
+                </p>
+              </dd>
+            </div>
+
+            <div class="skill reveal">
+              <dt class="mono">Data stores &amp; integration</dt>
+              <dd>
+                <p class="skill-items">QuestDB &middot; ClickHouse &middot; PostgreSQL &middot; Supabase &middot; REST APIs &middot; WebSocket &middot; JSON</p>
+                <p class="skill-note">
+                  QuestDB tables for market-data ingestion and ClickHouse for reporting queries.
+                  REST and WebSocket APIs for exchange feeds and trading clients; PostgreSQL and
+                  Supabase on public projects; JSON for configuration and state.
+                </p>
+              </dd>
+            </div>
+
+            <div class="skill reveal">
+              <dt class="mono">Tools &amp; delivery</dt>
+              <dd>
+                <p class="skill-items">Git &middot; Docker &middot; Shell scripting &middot; AWS &middot; CI/CD &middot; cron</p>
+                <p class="skill-note">
+                  Git in team workflows, shell scripts to launch market-data feeds, CI pipelines on
+                  public repositories, cron for scheduled reporting. Docker and AWS are working
+                  knowledge rather than day-to-day production tools.
+                </p>
+              </dd>
+            </div>
+          </dl>
+
+          <p class="footnote reveal">
+            AI-assisted coding tools (GitHub Copilot, ChatGPT) are part of my daily workflow as
+            supporting tools.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── About & education ────────────────────────────── -->
+      <section id="about" class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="section-num mono">04</span>
+            <div>
+              <h2>About</h2>
+            </div>
+          </div>
+
+          <div class="about-grid">
+            <div class="prose reveal">
+              <p>
+                I'm a software developer based in Ko&#353;ice, Slovakia, and a Computer Science
+                student at the Technical University of Ko&#353;ice. I work mostly in Python and C#,
+                on things other people depend on: a dashboard external clients use to manage live
+                liquidity positions, market-data feeds, and trading clients where milliseconds
+                matter.
+              </p>
+              <p>
+                My first Flask project was the liquidity-management interface; since then most of my
+                time has gone into API integrations, execution workflows and the data pipelines
+                behind the dashboard. Before Sigma Sphere I worked on an internal task-management
+                platform at Deutsche Telekom IT Solutions Slovakia in PHP and JavaScript.
+              </p>
+              <p>
+                I'm looking for Python backend, C#/.NET and full-stack roles where I can own features
+                end to end &mdash; from the API integration to the interface someone actually uses.
+              </p>
+            </div>
+
+            <aside class="facts reveal">
+              <dl>
+                <div>
+                  <dt class="mono">Based in</dt>
+                  <dd>Ko&#353;ice, Slovakia</dd>
+                </div>
+                <div>
+                  <dt class="mono">Focus</dt>
+                  <dd>Python backend &middot; C#/.NET &middot; full-stack</dd>
+                </div>
+                <div>
+                  <dt class="mono">Current role</dt>
+                  <dd>Quantitative Developer, Sigma Sphere</dd>
+                </div>
+                <div>
+                  <dt class="mono">Studying</dt>
+                  <dd>BSc Computer Science, TUKE (in progress)</dd>
+                </div>
+              </dl>
+              <a href="assets/Matej_Tomko_cv.pdf" download="Matej_Tomko_cv.pdf" type="application/pdf" class="inline-link mono">
+                Download CV (PDF) &darr;
+              </a>
+            </aside>
+          </div>
+
+          <h3 class="subhead reveal">Education</h3>
+
+          <ul class="education">
+            <li class="reveal">
+              <div>
+                <p class="edu-title">BSc Computer Science</p>
+                <p class="edu-school">Technical University of Ko&#353;ice &mdash; Ko&#353;ice, Slovakia</p>
+              </div>
+              <p class="edu-meta mono">Sep 2024 &mdash; May 2027 &middot; In progress</p>
+            </li>
+            <li class="reveal">
+              <div>
+                <p class="edu-title">Coursework in Computer and Information Sciences</p>
+                <p class="edu-school">Brno University of Technology &mdash; Brno, Czech Republic</p>
+              </div>
+              <p class="edu-meta mono">Sep 2021 &mdash; May 2024</p>
+            </li>
+            <li class="reveal">
+              <div>
+                <p class="edu-title">High School Diploma, Mathematics and Computer Science</p>
+                <p class="edu-school">Gymnasium Komensk&eacute;ho 32 &mdash; Trebi&#353;ov, Slovakia</p>
+              </div>
+              <p class="edu-meta mono">Sep 2017 &mdash; May 2021</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Contact ──────────────────────────────────────── -->
+      <section id="contact" class="section section-contact">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="section-num mono">05</span>
+            <div>
+              <h2>Contact</h2>
+              <p class="section-lede">
+                I'm open to Python backend, C#/.NET and full-stack roles. Email is the fastest way to
+                reach me.
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-grid reveal">
+            <a class="contact-email" href="mailto:matej2808@gmail.com">matej2808@gmail.com</a>
+
+            <ul class="contact-links mono">
+              <li><a href="https://github.com/noname7571" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/matej-tomko/" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="tel:+421918133593">+421 918 133 593</a></li>
+              <li><a href="assets/Matej_Tomko_cv.pdf" download="Matej_Tomko_cv.pdf" type="application/pdf">CV (PDF)</a></li>
+            </ul>
+          </div>
         </div>
       </section>
 
     </main>
 
-    <!-- ─────────────────────────────────────────
-         FOOTER
-    ───────────────────────────────────────── -->
-    <footer class="py-8 px-6 border-t border-slate-800 text-center">
-      <p class="text-slate-500 text-sm font-mono">
-        Designed &amp; built by <span class="text-slate-400">Matej Tomko</span> &middot; 2026
-      </p>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="mono">&copy; <span data-year>2026</span> Matej Tomko</p>
+        <p class="mono dim">Built with plain HTML, CSS and JavaScript</p>
+      </div>
     </footer>
 
     <script src="js/main.js"></script>
