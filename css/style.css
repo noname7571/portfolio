@@ -1233,6 +1233,35 @@ img {
   text-align: right;
 }
 
+.thesis {
+  max-width: 60ch;
+  margin-top: 14px;
+  padding-left: 15px;
+  border-left: 1px solid var(--line-accent);
+}
+
+.thesis-label {
+  font-size: 0.64rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.thesis-title {
+  margin-top: 6px;
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.thesis-desc {
+  margin-top: 6px;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--dim);
+}
+
 /* ============================================================
    Contact & footer
    ============================================================ */
@@ -1423,7 +1452,12 @@ img {
   }
 
   .edu-meta {
+    order: -1;
     text-align: left;
+  }
+
+  .thesis {
+    padding-left: 12px;
   }
 
   .facts dl > div {

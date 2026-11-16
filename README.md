@@ -26,7 +26,7 @@ instead of cards, gradients and glows.
 | **01 Professional work** | Sigma Sphere and Deutsche Telekom, with expandable case studies (context, what I built, result, contribution, stack) |
 | **02 Public projects** | Cabo game, price dashboard, topic-research SaaS, flight-sniper, Rust log analyzer, crypto ML pipeline |
 | **03 Skills** | Languages, frameworks, data stores & integration, tools & delivery — each with usage notes |
-| **04 About & education** | Short background, quick facts, compact education list |
+| **04 About & education** | Short background, quick facts, compact education list including the bachelor’s thesis |
 | **05 Contact** | Email, phone, GitHub, LinkedIn, CV |
 
 ---
@@ -97,6 +97,7 @@ All asset and navigation URLs are relative, so the site works from the GitHub Pa
 | Projects | `#projects` in `index.html` — one `<article class="project">` per project |
 | Skills | `#skills` in `index.html` — one `.skill` block per category |
 | Education | `#about` in `index.html` — the `.education` list |
+| Bachelor’s thesis | `.thesis` block inside the first `.education` item (`#about`) |
 | Colours / type | `:root` design tokens at the top of `css/style.css` |
 
 ---
